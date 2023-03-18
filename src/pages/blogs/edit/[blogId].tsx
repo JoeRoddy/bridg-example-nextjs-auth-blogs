@@ -10,12 +10,13 @@ interface Props {}
 
 const EditBlogPage: NextPage<Props> = ({}) => {
   const router = useRouter();
-  const blogId = useRouter().query.blogId as string;
+  const blogId = router.query.blogId as string;
   const [blog, setBlog] = useState<Blog>();
   useEffect(() => {
     if (!blogId) return;
     (async () => {
-      const blog = await db.blog.findFirst({ where: { id: blogId } });
+      const blog = await db.blog.findUnique({ where: { id: blogId } });
+      if (!blog) return router.push('/404');
       setBlog(blog);
     })();
   }, [blogId]);
