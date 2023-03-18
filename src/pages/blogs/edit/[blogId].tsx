@@ -25,7 +25,7 @@ const EditBlogPage: NextPage<Props> = ({}) => {
     <div>
       <BlogForm
         onSubmit={async (data) => {
-          await db.blog.updateMany({ where: { id: blogId }, data });
+          await db.blog.update({ where: { id: blogId }, data });
           router.push(`/blogs/${blog.id}`);
         }}
         onCancel={() => router.push(`/blogs/${blog.id}`)}

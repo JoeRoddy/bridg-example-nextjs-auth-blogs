@@ -43,7 +43,7 @@ const BlogPage: NextPage<Props> = ({}) => {
           <button onClick={() => router.push(`/blogs/edit/${blogId}`)}>Edit</button>
           <button
             onClick={async () => {
-              await db.blog.deleteMany({ where: { id: blogId } });
+              await db.blog.delete({ where: { id: blogId } });
               router.push('/blogs');
             }}
           >
