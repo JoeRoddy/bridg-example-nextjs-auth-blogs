@@ -1,10 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 import prisma from 'prisma/db';
-import { handleRequest } from 'bridg/app/server/request-handler';
-import { dbRules } from 'prisma/db-rules';
+import { DbRules, handleRequest } from 'bridg/app/server/request-handler';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
+
+const dbRules: DbRules = { default: true };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
   const session = await getServerSession(req, res, authOptions);
