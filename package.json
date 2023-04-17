@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "compile": "npm explore bridg -- npm run build-client",
-    "generate": "npx prisma generate && node ./node_modules/bridg/dist/generator/index.js ./prisma/schema.prisma && npm explore bridg -- npm run build-client",
+    "generate": "npx prisma generate && npm explore bridg -- npm run generate",
     "ppush": "npx prisma db push",
     "seed": "yarn prisma db seed"
   },
@@ -26,7 +26,7 @@
     "eslint-config-next": "13.1.4",
     "next": "13.1.4",
     "next-auth": "^4.19.2",
-    "bridg": "^1.0.14",
+    "bridg": "^1.0.16",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "^4.9.5"
