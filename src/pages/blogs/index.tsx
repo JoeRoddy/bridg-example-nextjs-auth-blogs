@@ -1,7 +1,7 @@
 import { Blog } from '@prisma/client';
+import db from 'bridg';
 import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
-import db from 'bridg/app/client/db';
 
 import BlogList from '@/pages/components/blogs/BlogList';
 

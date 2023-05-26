@@ -1,9 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import prisma from 'prisma/db';
-import { DbRules, handleRequest } from 'bridg/app/server/request-handler';
-import { getServerSession } from 'next-auth';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
+import { DbRules, handleRequest } from 'bridg/server/request-handler';
+import { getServerSession } from 'next-auth';
+import prisma from 'prisma/db';
 
 const dbRules: DbRules = { default: true };
 

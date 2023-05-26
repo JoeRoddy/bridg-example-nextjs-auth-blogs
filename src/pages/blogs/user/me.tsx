@@ -1,8 +1,8 @@
 import BlogList from '@/pages/components/blogs/BlogList';
 import { Blog } from '@prisma/client';
+import db from 'bridg';
 import { NextPage } from 'next';
 import { useSession } from 'next-auth/react';
-import db from 'bridg/app/client/db';
 
 import { useEffect, useState } from 'react';
 

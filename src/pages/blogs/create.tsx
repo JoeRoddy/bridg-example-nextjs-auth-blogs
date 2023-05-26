@@ -1,5 +1,5 @@
 import BlogForm from '@/pages/components/blogs/BlogForm';
-import db from 'bridg/app/client/db';
+import db from 'bridg';
 import { NextPage } from 'next';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';

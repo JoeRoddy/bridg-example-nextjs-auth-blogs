@@ -1,8 +1,8 @@
 import { Blog, User } from '@prisma/client';
+import db from 'bridg';
 import { NextPage } from 'next';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
-import db from 'bridg/app/client/db';
 import { useEffect, useState } from 'react';
 
 interface Props {}

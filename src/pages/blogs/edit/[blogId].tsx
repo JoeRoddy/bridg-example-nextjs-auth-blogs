@@ -1,8 +1,8 @@
 import BlogForm from '@/pages/components/blogs/BlogForm';
 import { Blog } from '@prisma/client';
+import db from 'bridg';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import db from 'bridg/app/client/db';
 
 import { useEffect, useState } from 'react';
 
