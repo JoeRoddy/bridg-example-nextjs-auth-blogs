@@ -1,6 +1,9 @@
 generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["extendedWhereUnique"]
+  provider = "prisma-client-js"
+}
+
+generator bridg {
+  provider = "bridg"
 }
 
 datasource db {

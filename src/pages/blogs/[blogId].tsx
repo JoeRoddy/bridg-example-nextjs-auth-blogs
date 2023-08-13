@@ -1,5 +1,5 @@
 import { Blog, User } from '@prisma/client';
-import db from 'bridg';
+import bridg from 'bridg';
 import { NextPage } from 'next';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
@@ -16,7 +16,7 @@ const BlogPage: NextPage<Props> = ({}) => {
   useEffect(() => {
     if (!blogId) return;
     (async () => {
-      const blog = await db.blog.findUnique({ where: { id: blogId }, include: { user: true } });
+      const blog = await bridg.blog.findUnique({ where: { id: blogId }, include: { user: true } });
       if (!blog) return router.push('/404');
       setBlog(blog);
     })();
@@ -43,7 +43,7 @@ const BlogPage: NextPage<Props> = ({}) => {
           <button onClick={() => router.push(`/blogs/edit/${blogId}`)}>Edit</button>
           <button
             onClick={async () => {
-              await db.blog.delete({ where: { id: blogId } });
+              await bridg.blog.delete({ where: { id: blogId } });
               router.push('/blogs');
             }}
           >

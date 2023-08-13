@@ -1,5 +1,5 @@
 import { Blog } from '@prisma/client';
-import db from 'bridg';
+import bridg from 'bridg';
 import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 
@@ -12,7 +12,7 @@ const Blogs: NextPage<Props> = ({}) => {
 
   useEffect(() => {
     (async () => {
-      const blogs = await db.blog.findMany({ where: { published: true } });
+      const blogs = await bridg.blog.findMany({ where: { published: true } });
       setBlogs(blogs);
     })();
   }, []);

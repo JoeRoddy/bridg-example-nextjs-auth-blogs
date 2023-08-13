@@ -1,5 +1,5 @@
 import { Blog, User } from '@prisma/client';
-import db from 'bridg';
+import bridg from 'bridg';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -16,7 +16,7 @@ const Blogs: NextPage<Props> = ({}) => {
   useEffect(() => {
     if (!userId) return;
     (async () => {
-      const user = await db.user.findUnique({
+      const user = await bridg.user.findUnique({
         where: { id: userId },
         include: { blogs: { where: { published: true } } },
       });

@@ -1,6 +1,6 @@
 import BlogList from '@/pages/components/blogs/BlogList';
 import { Blog } from '@prisma/client';
-import db from 'bridg';
+import bridg from 'bridg';
 import { NextPage } from 'next';
 import { useSession } from 'next-auth/react';
 
@@ -16,7 +16,7 @@ const Blogs: NextPage<Props> = ({}) => {
   useEffect(() => {
     if (!userId) return;
     (async () => {
-      const blogs = await db.blog.findMany({ where: { userId } });
+      const blogs = await bridg.blog.findMany({ where: { userId } });
       setBlogs(blogs);
     })();
   }, [userId]);

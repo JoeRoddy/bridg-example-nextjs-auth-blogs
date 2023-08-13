@@ -1,5 +1,5 @@
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
-import db from 'bridg';
+import bridg from 'bridg';
 import { GetServerSidePropsContext, NextPage } from 'next';
 import { getServerSession } from 'next-auth';
 import { useSession } from 'next-auth/react';
@@ -15,15 +15,13 @@ const Name: NextPage<Props> = ({}) => {
 
   useEffect(() => {
     (async () => {
-      const data = await db.user.findMany({ include: { blogs: true } });
+      const data = await bridg.user.findMany({ include: { blogs: true } });
       setData(data);
     })();
   }, []);
 
   return (
     <div className="">
-      <p className=""></p>
-
       <pre>{JSON.stringify(data, null, 1)}</pre>
     </div>
   );

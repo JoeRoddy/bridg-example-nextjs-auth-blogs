@@ -1,6 +1,6 @@
 import BlogForm from '@/pages/components/blogs/BlogForm';
 import { Blog } from '@prisma/client';
-import db from 'bridg';
+import bridg from 'bridg';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 
@@ -15,7 +15,7 @@ const EditBlogPage: NextPage<Props> = ({}) => {
   useEffect(() => {
     if (!blogId) return;
     (async () => {
-      const blog = await db.blog.findUnique({ where: { id: blogId } });
+      const blog = await bridg.blog.findUnique({ where: { id: blogId } });
       if (!blog) return router.push('/404');
       setBlog(blog);
     })();
@@ -25,7 +25,7 @@ const EditBlogPage: NextPage<Props> = ({}) => {
     <div>
       <BlogForm
         onSubmit={async (data) => {
-          await db.blog.update({ where: { id: blogId }, data });
+          await bridg.blog.update({ where: { id: blogId }, data });
           router.push(`/blogs/${blog.id}`);
         }}
         onCancel={() => router.push(`/blogs/${blog.id}`)}
