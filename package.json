@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "compile": "npm explore bridg -- npm run build-client",
-    "generate": "npx prisma generate && npm explore bridg -- npm run generate",
+    "generate": "npx prisma generate",
     "ppush": "npx prisma db push",
     "seed": "yarn prisma db seed"
   },
